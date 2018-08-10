@@ -1,6 +1,6 @@
 
 module.exports = {
-  // rootDir: __dirname,
+  rootDir: process.cwd() + '/api_docs/',
   srcDir: __dirname,
   head: {
     title: 'api-docs',
