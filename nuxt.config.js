@@ -1,6 +1,7 @@
 
 module.exports = {
   rootDir: process.cwd() + '/api_docs/',
+  modulesDir: process.cwd() + '/node_modules/',
   srcDir: __dirname,
   head: {
     title: 'api-docs',
@@ -40,6 +41,10 @@ module.exports = {
     ** Run ESLint on save
     */
     extend(config, {isDev, isClient}) {
+      if (!isDev) {
+        // relative links, please.
+        config.output.publicPath = './_nuxt/'
+      }
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
