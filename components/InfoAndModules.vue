@@ -4,17 +4,17 @@
       <div class="second-menu">
         <ul class="list-menu">
           <li :class="{'uk-active':step===1}">
-            <a href="#"  @click="step =1">
+            <a style="cursor: pointer"  @click="step =1">
               <img src="~/static/images/icon_menu_01.png" alt="" width="16" height="16">HTTP/2
             </a>
           </li>
           <li :class="{'uk-active':step===2}">
-            <a href="#" @click="step =2">
+            <a style="cursor: pointer" @click="step =2">
               <img src="~/static/images/icon_menu_02.png" alt="" width="18" height="17">WebSocket
             </a>
           </li>
           <li :class="{'uk-active':step===3}">
-            <a href="#" @click="step =3">
+            <a style="cursor: pointer" @click="step =3">
               <img src="~/static/images/icon_menu_03.png" alt="" width="18" height="17">About API
             </a>
           </li>
@@ -26,7 +26,7 @@
         <step3 v-if="step===3"/>
       </ul>
     </div>
-    <a class="link-bottom" href=""><i class="uk-icon-angle-down"></i></a>
+    <a class="link-bottom" style="cursor: pointer"><i class="uk-icon-angle-down"></i></a>
   </div>
 
 </template>
