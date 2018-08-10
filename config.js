@@ -1,1 +1,1 @@
-module.exports = {"baseUrl":"https://exchanger_001.proexchanger.net/","API_URL":"https://exchanger_001.proexchanger.net/service/api/v1/","projectName":"API","hideDeveloper":false};
+module.exports = {"baseUrl":"http://localhost:3010","API_URL":"http://localhost:3010/api/v1/","projectName":"Chocolate Shop","hideDeveloper":false};

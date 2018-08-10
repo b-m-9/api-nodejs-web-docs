@@ -28,7 +28,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import HeaderNavigate from '~/components/_utils/headerNavigate.vue'
   import FooterBlock from '~/components/_utils/footerBlock.vue'
   import HelloBlock from '~/components/HelloBlock.vue'
@@ -37,7 +36,6 @@
   import Methods from '~/components/Methods.vue'
   import InfoAndModules from '~/components/InfoAndModules.vue'
 
-  const $config = require('../config');
   export default {
     components: {
       HeaderNavigate,
@@ -48,16 +46,27 @@
       Methods,
       FooterBlock
     },
-    asyncData() {
-      return axios.post($config.API_URL + 'config/docs/api').then(res => {
-        console.log(res);
-        res.data.config.count_method = res.data.methods.length;
-        return {
-          docs: res.data.methods,
-          stat: res.data.config,
-          projectName: $config.projectName
-        };
-      });
+    data() {
+      return {
+        docs: [],
+        stat: {
+          commitHash: "00000",
+          countQueries: "0",
+          count_method: 0,
+          latency_ms: "0",
+          project_name: "API",
+          version: "0.0.0"
+        },
+        projectName: this.$config.projectName
+      }
+    },
+    mounted() {
+      return this.$rest.api('config/docs/api', {}).then(res => {
+        // console.log(res.data.methods)
+        this.docs = res.data.methods;
+        this.stat = res.data.config;
+        this.stat.count_method = res.data.methods.length;
+      })
     }
   }
 </script>
