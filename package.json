@@ -1,6 +1,6 @@
 {
   "name": "api-nodejs-docs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "for api-nodejs",
   "author": "bogdanmedvedev <www.clsa.ru@gmail.com>",
   "scripts": {
