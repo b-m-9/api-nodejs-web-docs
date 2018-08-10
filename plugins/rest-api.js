@@ -19,9 +19,10 @@ const Rest = {
   baseUrl: config.baseUrl,
   apiPath: config.API_URL,
 };
-Vue.use(Rest);
 
 export default ({app}) => {
   app.$rest = Rest;
   app.$config = config;
 }
+
+Vue.use(Rest);

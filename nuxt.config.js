@@ -1,4 +1,3 @@
-const configApp = require('./config.js');
 
 module.exports = {
 
@@ -18,6 +17,7 @@ module.exports = {
     '~/static/css/accordion.min.css',
     '~/static/css/fonts.css',
     '~/static/css/template.css',
+    '~/static/css/fa5.css',
     '~/static/css/media.css',
 
   ],
@@ -31,15 +31,9 @@ module.exports = {
     // ]
   ],
   plugins: [
-    {src: '~/plugins/rest-api'}
+    {src: '~/plugins/rest-api.js'}
   ],
-  env: {
-    configApp,
-  },
   loading: {color: '#2323f1'},
-  /*
-  ** Build configuration
-  */
   build: {
     /*
     ** Run ESLint on save
@@ -55,5 +49,4 @@ module.exports = {
       }
     }
   }
-}
-
+};

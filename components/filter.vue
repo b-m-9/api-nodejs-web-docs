@@ -18,7 +18,7 @@
         </ul>
       </div>
     </div>
-    <form class="method-block uk-margin-top uk-form" onsubmit="scanS();return false;" action="#">
+    <form class="method-block uk-margin-top uk-form" onsubmit="return false;" action="#">
       <div class="uk-grid uk-grid-medium">
         <div class="uk-width-2-10">
           <div class="jq-selectbox jqselect uk-width-1-1" id="group-scan-styler">
@@ -44,8 +44,8 @@
       </div>
     </form>
     <div class="uk-grid method-name uk-margin-top">
-      <div class="uk-width-2-10"><span>method</span></div>
-      <div class="uk-width-6-10"><span>description</span></div>
+      <div class="uk-width-3-10"><span>method</span></div>
+      <div class="uk-width-5-10"><span>description</span></div>
       <div class="uk-width-2-10 uk-text-center"><span>group</span></div>
     </div>
   </div>

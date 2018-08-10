@@ -12,33 +12,43 @@
         <li>
           <div class="list-panel uk-flex uk-flex-center uk-flex-middle">
             <div><span>Received queries</span><span><img src="~/static/images/icon_statistic_02.png" alt="" width="19"
-                                                         height="21">101/min</span></div>
+                                                         height="21">{{stat.countQueries}}/min</span></div>
           </div>
         </li>
         <li>
           <div class="list-panel uk-flex uk-flex-center uk-flex-middle">
             <div><span>Methods</span><span><img src="~/static/images/icon_statistic_03.png" alt="" width="18"
-                                                height="19">76</span></div>
+                                                height="19">{{stat.count_method}}</span></div>
           </div>
         </li>
         <li>
           <div class="list-panel uk-flex uk-flex-center uk-flex-middle">
-            <div><span>VCS hash</span><span style="text-transform: none;"># d0e6afd</span></div>
+            <div><span>VCS hash</span><span style="text-transform: none;"># {{stat.commitHash}}</span></div>
           </div>
         </li>
         <li>
           <div class="list-panel uk-flex uk-flex-center uk-flex-middle">
             <div><span>latency</span><span><img src="~/static/images/icon_statistic_05.png" alt="" width="18"
-                                                height="21">10<span class="text-small">ms</span></span></div>
+                                                height="21">{{stat.latency_ms}}<span class="text-small">ms</span></span></div>
           </div>
         </li>
         <li>
           <div class="list-panel uk-flex uk-flex-center uk-flex-middle">
-            <div><span>Application</span><span><span class="text-small">v</span>1.2.0</span></div>
+            <div><span>Application</span><span><span class="text-small">v</span>{{stat.version}}</span></div>
           </div>
         </li>
       </ul>
       <p class="uk-text-center">Statistics for 30 days - the data is updated every minute.</p></div>
   </div>
 </template>
+
+
+<script>
+  export default {
+    props: {
+      stat: {type: Object, required: true}
+    }
+  }
+</script>
+
 
