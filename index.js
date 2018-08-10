@@ -20,4 +20,3 @@ module.exports = (config_file, waitPromise) => {
   router.use(nuxt.render);
   return router;
 };
-
