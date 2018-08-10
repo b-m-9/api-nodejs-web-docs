@@ -2,9 +2,6 @@
 module.exports = {
   rootDir: __dirname,
   srcDir: __dirname,
-  router: {
-    base: '/api/docs/'
-  },
   head: {
     title: 'api-docs',
     meta: [
