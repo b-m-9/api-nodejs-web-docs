@@ -3,8 +3,10 @@ const express = require('express');
 const fs = require('fs');
 
 
-
 module.exports = (config_file, waitPromise) => {
+  let cfs = JSON.stringify(config_file);
+  cfs = 'module.exports = ' + cfs + ';';
+  fs.writeFileSync(__dirname + '/config.js', cfs);
 
   let config = require('./nuxt.config.js');
   config.dev = false;
@@ -16,5 +18,5 @@ module.exports = (config_file, waitPromise) => {
     .generate({init: true, build: true}).then(() => {
     console.log('ready');
   });
-  return generator;
+  return generator
 };
