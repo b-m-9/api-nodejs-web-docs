@@ -1,6 +1,6 @@
 
 module.exports = {
-
+  srcDir: __dirname,
   head: {
     title: 'api-docs',
     meta: [
