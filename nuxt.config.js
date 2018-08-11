@@ -1,10 +1,8 @@
 module.exports = {
-  // rootDir: process.cwd() + '/api_docs/',
-  // modulesDir: process.cwd() + '/node_modules/',
   srcDir: __dirname,
   mode: 'spa',
   router: {
-    base : './',
+    base : '/',
     mode: 'hash'
   },
   head: {
