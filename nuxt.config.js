@@ -2,9 +2,10 @@ module.exports = {
   // rootDir: process.cwd() + '/api_docs/',
   // modulesDir: process.cwd() + '/node_modules/',
   srcDir: __dirname,
-  router:{
-    mode:'hash',
-    base:'/api-nodejs-docs/'
+  mode: 'spa',
+  router: {
+    base : './',
+    mode: 'hash'
   },
   head: {
     title: 'api-docs',
@@ -36,6 +37,7 @@ module.exports = {
   ],
   loading: {color: '#2323f1'},
   build: {
+    // publicPath: 'nuxt/',
     extend(config, {isDev, isClient}) {
 
       if (isDev && isClient) {
