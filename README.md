@@ -1,23 +1,12 @@
-# api-docs
-
-> Nuxt.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-$ npm install # Or yarn install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm start
-
-# generate static project
-$ npm run generate
 ```
+const RestapiDocs = require('api-nodejs-docs');
 
-For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
 
+RestapiDocs({
+    "baseUrl": config.get('shema') + '://' + config.get('domain'),
+    "API_URL": config.get('api_url'),
+    "projectName": config.get('project_name'),
+    "hideDeveloper": false
+});
+app.use('/api/v1/docs/', express.static('api_docs/dist'));
+```
