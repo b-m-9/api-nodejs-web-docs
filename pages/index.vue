@@ -47,8 +47,7 @@
       FooterBlock
     },
     data() {
-      console.log('getdata','');
-      console.log('getdata',this.$config.projectName);
+
 
       return {
         docs: [],
