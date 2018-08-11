@@ -4,17 +4,17 @@
       <div class="second-menu">
         <ul class="list-menu">
           <li :class="{'uk-active':step===1}">
-            <a style="cursor: pointer"  @click="step =1">
+            <a style="cursor: pointer" @click="setStep(1)">
               <img src="~/static/images/icon_menu_01.png" alt="" width="16" height="16">HTTP/2
             </a>
           </li>
           <li :class="{'uk-active':step===2}">
-            <a style="cursor: pointer" @click="step =2">
+            <a style="cursor: pointer" @click="setStep(2)">
               <img src="~/static/images/icon_menu_02.png" alt="" width="18" height="17">WebSocket
             </a>
           </li>
-          <li :class="{'uk-active':step===3}">
-            <a style="cursor: pointer" @click="step =3">
+          <li :class="{'uk-active':step===3}" @click="setStep(3)">
+            <a style="cursor: pointer">
               <img src="~/static/images/icon_menu_03.png" alt="" width="18" height="17">About API
             </a>
           </li>
@@ -46,6 +46,12 @@
     data() {
       return {
         step: 1
+      }
+    },
+    methods: {
+      setStep(step) {
+        console.log('setStep',step);
+        this.step = step;
       }
     }
   }

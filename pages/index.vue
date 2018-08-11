@@ -47,6 +47,9 @@
       FooterBlock
     },
     data() {
+      console.log('getdata','');
+      console.log('getdata',this.$config.projectName);
+
       return {
         docs: [],
         stat: {
@@ -61,7 +64,11 @@
       }
     },
     mounted() {
+      console.log('mounted','');
+
       return this.$rest.api('config/docs/api', {}).then(res => {
+        console.log('config/docs/api',res.data);
+
         // console.log(res.data.methods)
         this.docs = res.data.methods;
         this.stat = res.data.config;

@@ -1,6 +1,6 @@
 <template>
   <div class="result-metod-block uk-margin-top">
-    <div class="uk-accordion" v-for="(el) in methodsApi" :key="el.method">
+    <div class="uk-accordion" v-for="(el) in docs" :key="el.method">
       <h3 class="uk-accordion-title" @click="openMethod(el.method)"
           :class="{'uk-active':(open.indexOf(el.method) !== -1)}">
         <method-element-title :method="el"/>
@@ -18,22 +18,15 @@
   import MethodElementContent from '~/components/MethodElements/content.vue'
 
   export default {
+    props: {
+      docs: {type: Array, required: true}
+    },
     data() {
       return {
         step: 1,
         open: []
       }
     },
-    props: {
-      docs: {type: Array, required: true}
-    },
-    computed: {
-
-      methodsApi() {
-        return this.docs;
-      }
-    },
-
     components: {
       MethodElementContent,
       MethodElementTitle

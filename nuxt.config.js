@@ -1,8 +1,8 @@
-
 module.exports = {
-  rootDir: process.cwd() + '/api_docs/',
-  modulesDir: process.cwd() + '/node_modules/',
-  srcDir: __dirname,
+  // rootDir: process.cwd() + '/api_docs/',
+  // modulesDir: process.cwd() + '/node_modules/',
+  // srcDir: __dirname,
+  mode:'hash',
   head: {
     title: 'api-docs',
     meta: [
@@ -18,33 +18,23 @@ module.exports = {
     '~/static/css/uikit.min.css',
     '~/static/css/accordion.min.css',
     '~/static/css/fonts.css',
-    '~/static/css/template.css',
     '~/static/css/fa5.css',
+    '~/static/css/template.css',
     '~/static/css/media.css',
 
   ],
   modules: [
-    // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
     '@nuxtjs/moment',
-    // ['nuxt-sass-resources-loader',
-    //     './assets/sass/style.scss'
-    // ]
   ],
   plugins: [
-    {src: '~/plugins/rest-api.js'}
+    '~/plugins/rest-api.js'
   ],
   loading: {color: '#2323f1'},
   build: {
-    /*
-    ** Run ESLint on save
-    */
     extend(config, {isDev, isClient}) {
-      if (!isDev) {
-        // relative links, please.
-        config.output.publicPath = './_nuxt/'
-      }
+
       if (isDev && isClient) {
         config.module.rules.push({
           enforce: 'pre',
