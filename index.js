@@ -9,23 +9,15 @@ module.exports = (config_file) => {
   let cfs = JSON.stringify(config_file);
   cfs = 'module.exports = ' + cfs + ';';
 
-  // create dir
-  if (!fs.existsSync(process.cwd() + '/api_docs'))
-    fs.mkdirSync(process.cwd() + '/api_docs');
-  fs.writeFileSync(__dirname + '/config.js', cfs);
-
   let config = require('./nuxt.config.js');
   config.dev = false;
+  if (config_file.api_docs_path)
+    config.router.base = config_file.api_docs_path;
+
   const nuxt = new Nuxt(config);
+  new Builder(nuxt).build().catch(console.error);
+
   router.use(nuxt.render);
-  new Builder(nuxt).build();
 
-  // const builder = new Builder(nuxt);
-  // const generator = new Generator(nuxt, builder);
-
-  // generator
-  //   .generate({init: true, build: true}).then(() => {
-  //   console.log('ready');
-  // });
   return router
 };
