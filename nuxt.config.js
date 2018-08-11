@@ -3,9 +3,9 @@ module.exports = {
   // modulesDir: process.cwd() + '/node_modules/',
   srcDir: __dirname,
   router:{
-    base:'/'
+    mode:'hash',
+    base:'/api-nodejs-docs/'
   },
-  mode:'hash',
   head: {
     title: 'api-docs',
     meta: [

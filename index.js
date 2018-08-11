@@ -12,9 +12,6 @@ module.exports = (config_file) => {
 
   let config = require('./nuxt.config.js');
   config.dev = false;
-  if (config_file.api_docs_path)
-    config.router.base = config_file.api_docs_path;
-
   const nuxt = new Nuxt(config);
   new Builder(nuxt).build().catch(console.error);
 
