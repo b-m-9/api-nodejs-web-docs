@@ -8,6 +8,7 @@ module.exports = (config_file) => {
 
   let cfs = JSON.stringify(config_file);
   cfs = 'module.exports = ' + cfs + ';';
+  fs.writeFileSync(__dirname + '/config.js', cfs);
 
   let config = require('./nuxt.config.js');
   config.dev = false;
