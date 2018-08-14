@@ -17,7 +17,9 @@
         </tr>
         <tr>
           <td>Access level:</td>
-          <td>Server API (Call Only Server)</td>
+          <td>{{method.level ===0 ?'Public API': method.level ===1 ?'User API': method.level ===2 ?'Admin API':
+            method.level ===3 ?'Server API (Call Only Server)': 'ERROR ACCESS'}}
+          </td>
         </tr>
         <tr>
           <td>Тип:</td>
@@ -33,24 +35,25 @@
       </table>
     </div>
     <br><br>
-    <p class="title-method">POST PARAMETERS</p>
-    <table class="uk-table uk-table-middle uk-table-hover uk-table-striped">
+    <p class="title-method" v-if="method.param && Object.keys(method.param).length > 0">POST PARAMETERS</p>
+    <table class="uk-table uk-table-middle uk-table-hover uk-table-striped"
+           v-if="method.param && Object.keys(method.param).length > 0">
       <thead>
       <tr>
         <th>Name</th>
         <th>Description</th>
         <th>Type</th>
         <th>Required</th>
-        <th>Default value</th>
+        <th>Error Code</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <td>template</td>
-        <td>temp pug (./mailer/__template__.pug)</td>
-        <td>STRING</td>
-        <td>NO</td>
-        <td></td>
+      <tr v-for="(el,method_name) in method.param" :key="'param_i_'+method_name">
+        <td>{{method_name}}</td>
+        <td>{{el.title}}</td>
+        <td>{{el.type.name}}</td>
+        <td>{{el.required ? 'YES': 'NO'}}</td>
+        <td>{{el.error_code}}</td>
       </tr>
       </tbody>
     </table>

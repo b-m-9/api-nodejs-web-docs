@@ -49,7 +49,7 @@
 
   .content-method_info {
     height: auto;
-    max-height: 1000px;
+    max-height: 10000px;
     transition: max-height 0.3s ease-in;
     position: relative;
     overflow: hidden;
