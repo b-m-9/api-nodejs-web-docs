@@ -8,12 +8,15 @@
         </tr>
         <tr>
           <td>Method name:</td>
-          <td>{{method.method}} <i class="fal fa-copy"></i></td>
+          <td>{{method.method}} <i class="fal fa-copy"
+                                   v-clipboard:copy="method.method"
+                                   v-clipboard:success="onCopy"></i></td>
         </tr>
         <tr>
           <td>Method URL:</td>
-          <td><a :href="$config.API_URL+method.method" target="_blank">{{$config.API_URL+method.method}}</a>
-          </td>
+          <td><a :href="$config.API_URL+method.method" target="_blank">{{$config.API_URL+method.method}}</a> <i class="fal fa-copy"
+                                                                                                               v-clipboard:copy="$config.API_URL+method.method"
+                                                                                                               v-clipboard:success="onCopy"></i></td>
         </tr>
         <tr>
           <td>Access level:</td>
@@ -48,8 +51,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr v-for="(el,method_name) in method.param" :key="'param_i_'+method_name">
-        <td>{{method_name}}</td>
+      <tr v-for="(el,param_name) in method.param" :key="'param_i_'+param_name">
+        <td>{{param_name}} <i class="fal fa-copy"
+                               v-clipboard:copy="param_name"
+                               v-clipboard:success="onCopy"></i></td>
         <td>{{el.title}}</td>
         <td>{{el.type.name}}</td>
         <td>{{el.required ? 'YES': 'NO'}}</td>
@@ -66,6 +71,11 @@
     props: {
       method: {type: Object, required: true},
       tab: {type: Number, required: true},
+    },
+    methods:{
+      onCopy(){
+        console.log('copy')
+      }
     }
   }
 </script>

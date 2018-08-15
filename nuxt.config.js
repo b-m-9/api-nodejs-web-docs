@@ -31,7 +31,8 @@ module.exports = {
     '@nuxtjs/moment',
   ],
   plugins: [
-    '~/plugins/rest-api.js'
+    '~/plugins/rest-api.js',
+    '~/plugins/vue-clipboard.js'
   ],
   loading: {color: '#2323f1'},
   build: {
