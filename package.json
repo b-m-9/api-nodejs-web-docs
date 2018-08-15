@@ -16,9 +16,13 @@
     "@nuxtjs/moment": "^1.0.0",
     "@nuxtjs/proxy": "^1.2.4",
     "moment": "^2.22.2",
+    "node-sass": "^4.9.3",
     "nuxt": "^1.0.0",
+    "sass-loader": "^7.1.0",
     "vue": "^2.5.17",
-    "vue-clipboard2": "^0.2.1"
+    "vue-clipboard2": "^0.2.1",
+    "vue-json-viewer": "^1.0.4",
+    "vue-style-loader": "^4.1.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

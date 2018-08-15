@@ -23,6 +23,7 @@ module.exports = {
     '~/static/css/fa5.css',
     '~/static/css/template.css',
     '~/static/css/media.css',
+    '~/node_modules/vue-json-viewer/examples/css/ionicons.min.css',
 
   ],
   modules: [
@@ -32,7 +33,8 @@ module.exports = {
   ],
   plugins: [
     '~/plugins/rest-api.js',
-    '~/plugins/vue-clipboard.js'
+    '~/plugins/vue-clipboard.js',
+    '~/plugins/vue-json-tree-view.js'
   ],
   loading: {color: '#2323f1'},
   build: {
