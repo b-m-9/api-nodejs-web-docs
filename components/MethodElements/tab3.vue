@@ -54,9 +54,11 @@
             <div class="auto-suggest-group">
               <div class="key-value-form-column" style="flex: 0 0 33%;"><span
                 data-text="true">{{param_name}}</span></div>
-              <div class="key-value-form-column" style="flex: 0 0 33%;">
+              <div class="key-value-form-column" style="flex: 0 0 33%;" v-if="el && typeof el ==='object'">
+                <input class="key-value-form-input" :placeholder="'ARRAY('+el[0].type.name+')'" :name="param_name"  v-if="Array.isArray(el)">
+
                 <select class="key-value-form-input" :placeholder="el.type.name" :name="param_name"
-                        v-if="el.type.name === 'BOOLEAN'">
+                        v-else-if="el.type.name === 'BOOLEAN'">
                   <option value="$undefined$" selected disabled>Select BOOLEAN</option>
                   <option value="$true$">true</option>
                   <option value="$false$">false</option>
@@ -67,6 +69,9 @@
                        v-else-if="el.type.name === 'FLOAT'" type="number" step="0.01">
                 <input class="key-value-form-input" :placeholder="el.type.name" :name="param_name" v-else>
 
+              </div>
+              <div class="key-value-form-column" style="flex: 0 0 33%;" v-else>
+                <input class="key-value-form-input" placeholder="Null" :name="param_name" v-else>
               </div>
               <div class="key-value-form-column" style="flex: 0 0 34%;"><span data-text="true">{{el.title}}</span>
               </div>

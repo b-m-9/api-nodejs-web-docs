@@ -79,7 +79,8 @@
                                   v-clipboard:copy="param_name"
                                   v-clipboard:success="onCopy"></i></td>
             <td>{{el.title}}</td>
-            <td>{{el.type.name}}</td>
+            <td v-if="el && typeof el ==='object'">{{Array.isArray(el)? "ARRAY("+el[0].type.name+")": el.type.name}}</td>
+            <td v-else>Error Type</td>
             <td>{{el.required ? 'YES': 'NO'}}</td>
             <td>{{el.error_code}}</td>
           </tr>
