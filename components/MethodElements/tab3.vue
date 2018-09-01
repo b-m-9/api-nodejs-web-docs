@@ -144,10 +144,11 @@
             }
           }
         }
-        this.req_param = qs.parse(param);
-        console.log('SEND: ',request.methodURL, this.req_param);
+        param = qs.parse(param);
+        this.req_param = param;
+        console.log('SEND: ', request.methodURL, param);
 
-        return this.$axios.post(request.methodURL, this.req_param)
+        return this.$axios.post(request.methodURL, param)
           .then((res) => {
             this.res_data = res.data;
             this.status = res.status;
