@@ -15,7 +15,7 @@
       </li>
     </ul>
     <ul class="uk-switcher uk-clearfix">
-      <tab1 :method="method" :tab="tab"/>
+      <!--<tab1 :method="method" :tab="tab"/>-->
       <tab2 :method="method" :tab="tab"/>
       <tab3 :method="method" :tab="tab"/>
       <tab4 :method="method" :tab="tab"/>

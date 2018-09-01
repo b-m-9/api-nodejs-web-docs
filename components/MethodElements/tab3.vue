@@ -44,41 +44,8 @@
               </div>
             </div>
           </div>
+          <params_3 :param="method.param"/>
 
-          <div class="key-value-form-row" v-for="(el,param_name) in method.param" :key="'param_test_'+param_name">
-            <div class="key-value-form-actions">
-
-              <input type="checkbox" :value='1' checked :disabled="el.required" :name="'$enable_field$'+param_name"
-                     onclick="this.value = (this.value ==='1')?'0':'1' "/>
-            </div>
-            <div class="auto-suggest-group">
-              <div class="key-value-form-column" style="flex: 0 0 33%;"><span
-                data-text="true">{{param_name}}</span></div>
-              <div class="key-value-form-column" style="flex: 0 0 33%;">
-
-                <input class="key-value-form-input" :placeholder="'ARRAY('+el[0].type.name+')'" :name="param_name"
-                       v-if="!!Array.isArray(el)">
-                <select class="key-value-form-input" :placeholder="el.type.name" :name="param_name"
-                        v-else-if="el.type.name === 'BOOLEAN'">
-                  <option value="$undefined$" selected disabled>Select BOOLEAN</option>
-                  <option value="$true$">true</option>
-                  <option value="$false$">false</option>
-                </select>
-                <input class="key-value-form-input" :placeholder="el.type.name" :name="param_name"
-                       v-else-if="el.type.name === 'INTEGER'" type="number" step="1">
-                <input class="key-value-form-input" :placeholder="el.type.name" :name="param_name"
-                       v-else-if="el.type.name === 'FLOAT'" type="number" step="0.01">
-                <input class="key-value-form-input" :placeholder="el.type.name" :name="param_name" v-else>
-
-              </div>
-              <div class="key-value-form-column" style="flex: 0 0 34%;"><span data-text="true">{{el.title}}</span>
-              </div>
-            </div>
-
-            <div class="key-value-form-row__delete">
-              <div class="key-value-form-row__delete__icon"></div>
-            </div>
-          </div>
         </div>
       </form><!-- code container-->
       <div class="code-container uk-margin-top">
@@ -132,7 +99,11 @@
 </template>
 
 <script>
+  import params_3 from '~/components/MethodElements/params_3.vue'
+  import qs from 'qs';
+
   export default {
+    components: {params_3},
     data() {
       return {
         tab_active: 0,
@@ -173,12 +144,11 @@
             }
           }
         }
-        console.log(param);
+        this.req_param = qs.parse(param);
+        console.log('SEND: ',request.methodURL, this.req_param);
 
-        this.req_param = param;
-        return this.$axios.post(request.methodURL, param)
+        return this.$axios.post(request.methodURL, this.req_param)
           .then((res) => {
-            console.log(res);
             this.res_data = res.data;
             this.status = res.status;
             this.statusText = res.statusText;

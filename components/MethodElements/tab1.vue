@@ -74,16 +74,7 @@
           </thead>
 
           <tbody>
-          <tr v-for="(el,param_name) in method.param" :key="'param_i_'+param_name">
-            <td>{{param_name}} <i class="fal fa-copy"
-                                  v-clipboard:copy="param_name"
-                                  v-clipboard:success="onCopy"></i></td>
-            <td>{{el.title}}</td>
-            <td v-if="el && typeof el ==='object'">{{Array.isArray(el)? "ARRAY("+el[0].type.name+")": el.type.name}}</td>
-            <td v-else>Error Type</td>
-            <td>{{el.required ? 'YES': 'NO'}}</td>
-            <td>{{el.error_code}}</td>
-          </tr>
+            <params_1 :param="method.param"/>
           </tbody>
 
         </table>
@@ -96,7 +87,11 @@
 </template>
 
 <script>
+
+  import params_1 from '~/components/MethodElements/params_1.vue'
+
   export default {
+    components: {params_1},
     props: {
       method: {type: Object, required: true},
       tab: {type: Number, required: true},
