@@ -7,9 +7,6 @@
 
 
       <div class="key-value-form-row" v-else>
-        <script>console.log("== {{(el.type && el.type.name)}} ==",{{JSON.stringify(el)}})</script>
-
-
         <div class="key-value-form-actions">
 
           <input type="checkbox" :value='1' checked :disabled="el.required" :name="'$enable_field$'+getPath(root_param_name,param_name)"

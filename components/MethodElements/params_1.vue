@@ -1,15 +1,22 @@
 <template>
-  <div>
-    <tr v-for="(el,param_name) in method.param" :key="'param_i_'+param_name">
-      <td>{{param_name}} <i class="fal fa-copy"
-                            v-clipboard:copy="param_name"
-                            v-clipboard:success="onCopy"></i></td>
-      <td>{{el.title}}</td>
-      <td v-if="el && typeof el ==='object'">{{Array.isArray(el)? "ARRAY("+el[0].type.name+")": el.type.name}}</td>
-      <td v-else>Error Type</td>
-      <td>{{el.required ? 'YES': 'NO'}}</td>
-      <td>{{el.error_code}}</td>
-    </tr>
+  <div v-fragment>
+    <template v-for="(el,param_name) in param">
+      <params_1  :key="'param_test_'+param_name"
+                 :param="el"
+                :root_param_name="getPath(root_param_name,param_name)"
+                v-if="(typeof el ==='object') && (!el.type || !el.type.name)"/>
+      <tr  :key="'param_test_'+param_name" v-else>
+
+        <td>{{getPath(root_param_name,param_name)}} <i class="fal fa-copy"
+                                                       v-clipboard:copy="getPath(root_param_name,param_name)"
+                                                       v-clipboard:success="onCopy"></i></td>
+        <td>{{el.title}}</td>
+        <td v-if="el && typeof el ==='object'">{{ el.type.name}}</td>
+        <td v-else>Error Type</td>
+        <td>{{el.required ? 'YES': 'NO'}}</td>
+        <td>{{el.error_code}}</td>
+      </tr>
+    </template>
   </div>
 </template>
 

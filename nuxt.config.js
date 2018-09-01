@@ -32,6 +32,7 @@ module.exports = {
     '@nuxtjs/moment',
   ],
   plugins: [
+    '~/plugins/vue-fragment.js',
     '~/plugins/rest-api.js',
     '~/plugins/vue-clipboard.js',
     '~/plugins/vue-json-tree-view.js'
