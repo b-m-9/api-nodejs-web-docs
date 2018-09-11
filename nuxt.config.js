@@ -23,7 +23,6 @@ module.exports = {
     '~/static/css/fa5.css',
     '~/static/css/template.css',
     '~/static/css/media.css',
-    'vue-json-viewer/examples/css/ionicons.min.css',
 
   ],
   modules: [
