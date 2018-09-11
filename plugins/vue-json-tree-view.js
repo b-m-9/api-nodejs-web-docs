@@ -1,4 +1,5 @@
 import Vue from "vue"
-import JsonViewer from "vue-json-viewer/json-viewer"
+// import JsonViewer from "vue-json-viewer/json-viewer"
+import VueJsonPretty from 'vue-json-pretty'
 
-Vue.component('JsonViewer',JsonViewer);
+Vue.component('JsonViewer',VueJsonPretty);

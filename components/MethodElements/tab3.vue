@@ -76,16 +76,16 @@
         <ul class="uk-switcher uk-margin-top" id="code-main-switchsendEmailNotifyAllAdmin"
             style="padding:0 20px;">
           <li :class='{"uk-active":tab_active  === 0}'>
-            <div v-if="res_data && typeof res_data === 'object'">
-              <json-viewer :value="res_data" :show-copy="true" :show-bigger="true"></json-viewer>
 
+            <div v-if="res_data && typeof res_data === 'object'">
+              <json-viewer :data="res_data" :deep="2" :showLength="true"></json-viewer>
             </div>
             <div v-else>Click send.</div>
+
           </li>
           <li :class='{"uk-active":tab_active  === 1}'>
             <div v-if="req_param && typeof req_param === 'object'">
-              <json-viewer :value="req_param" :show-copy="true" :show-bigger="true"></json-viewer>
-
+              <json-viewer :data="req_param" :deep="2" :showLength="true"></json-viewer>
             </div>
             <div v-else>Click send.</div>
           </li>
