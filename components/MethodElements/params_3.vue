@@ -24,6 +24,18 @@
               <option value="$true$">true</option>
               <option value="$false$">false</option>
             </select>
+            <select class="key-value-form-input" :placeholder="el.type.name"
+                    :name="getPath(root_param_name,param_name)"
+                    v-else-if="el.type.name === 'ENUM'">
+              <option value="$undefined$" selected disabled>Select VALUE</option>
+              <option :value="v_enum" v-for="(v_enum,i) in el.type.enums" :key="'enum-'+param_name+'-'+i">{{v_enum}}</option>
+            </select>
+            <input class="key-value-form-input" :placeholder="el.type.name"
+                   :name="getPath(root_param_name,param_name)"
+                   v-else-if="el.type.name === 'DATE'" type="datetime-local">
+            <input class="key-value-form-input" :placeholder="el.type.name"
+                   :name="getPath(root_param_name,param_name)"
+                   v-else-if="el.type.name === 'FILE'" type="file">
             <input class="key-value-form-input" :placeholder="el.type.name"
                    :name="getPath(root_param_name,param_name)"
                    v-else-if="el.type.name === 'INTEGER'" type="number" step="1">
