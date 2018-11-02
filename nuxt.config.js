@@ -1,19 +1,21 @@
+const config = require('../config');
+
 module.exports = {
   srcDir: __dirname,
   mode: 'spa',
   router: {
-    base : '/',
+    base: '/',
     mode: 'hash'
   },
   head: {
-    title: 'api-docs',
+    title: config.projectName + ' - API',
     meta: [
       {charset: 'utf-8'},
       {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {hid: 'description', name: 'description', content: 'Nuxt.js project'}
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+      config.projectName{rel: 'icon', type: 'image/x-icon', href: config.iconBase64}
     ]
   },
   css: [
