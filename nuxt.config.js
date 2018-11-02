@@ -1,4 +1,4 @@
-const config = require('../config');
+const config = require('./config');
 
 module.exports = {
   srcDir: __dirname,
@@ -15,7 +15,7 @@ module.exports = {
       {hid: 'description', name: 'description', content: 'Nuxt.js project'}
     ],
     link: [
-      config.projectName{rel: 'icon', type: 'image/x-icon', href: config.iconBase64}
+      {rel: 'icon', type: 'image/x-icon', href: config.iconBase64}
     ]
   },
   css: [
