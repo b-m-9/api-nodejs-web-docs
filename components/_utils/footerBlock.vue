@@ -6,7 +6,7 @@
         <div class="uk-width-1-2 uk-text-right uk-margin-top">
           <ul class="nav-footer">
             <li><a :href="$config.baseUrl">{{$config.projectName}}</a></li>
-            <li v-if="$config.hideDeveloper !== true"><a href="https://github.com/medve-dev/" target="_blank">Developer @medve_dev</a></li>
+            <li v-if="$config.hideDeveloper !== true"><a href="https://github.com/b-m-9/" target="_blank">Developer @b-m-9</a></li>
           </ul>
         </div>
       </div>
