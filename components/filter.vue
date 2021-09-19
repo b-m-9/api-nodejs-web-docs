@@ -7,13 +7,13 @@
         <ul class="list-filter-btn">
           <li><span>Access:</span></li>
           <li>
-            <button class="uk-button uk-button-primary active" id="btn-scan-type-1" onclick="setGroup(1)">All</button>
+            <button class="uk-button uk-button-primary" :class="{active: methodLevel===1}" id="btn-scan-type-1" @click="setGroup(1)">All</button>
           </li>
           <li>
-            <button class="uk-button uk-button-primary" id="btn-scan-type-2" onclick="setGroup(2)">Public</button>
+            <button class="uk-button uk-button-primary" :class="{active: methodLevel===2}" id="btn-scan-type-2" @click="setGroup(2)">Public</button>
           </li>
           <li>
-            <button class="uk-button uk-button-primary" id="btn-scan-type-3" onclick="setGroup(3)">Private</button>
+            <button class="uk-button uk-button-primary" :class="{active: methodLevel===3}" id="btn-scan-type-3" @click="setGroup(3)">Private</button>
           </li>
         </ul>
       </div>
@@ -50,3 +50,16 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    methodLevel: {type: Number, default: 1},
+  },
+  methods: {
+    setGroup(type) {
+      this.$emit('setGroup', type);
+    }
+  }
+}
+</script>

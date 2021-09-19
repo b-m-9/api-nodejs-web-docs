@@ -29,8 +29,6 @@ module.exports = {
   ],
   modules: [
     '@nuxtjs/axios',
-    '@nuxtjs/proxy',
-    '@nuxtjs/moment',
   ],
   plugins: [
     '~/plugins/vue-fragment.js',
@@ -38,6 +36,7 @@ module.exports = {
     '~/plugins/vue-clipboard.js',
     '~/plugins/vue-json-tree-view.js'
   ],
+  env: {config},
   loading: {color: '#2323f1'},
   build: {
     // publicPath: 'nuxt/',

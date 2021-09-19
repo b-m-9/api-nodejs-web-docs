@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 
-const config = require('../config');
+const config = process.env.config;
 
 const Rest = {
   install(Vue, options) {
