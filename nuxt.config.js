@@ -1,6 +1,5 @@
-import Sass from "sass";
+const Sass = require("sass");
 const config = require('./config');
-const pkg = require("./package.json");
 
 module.exports = {
   telemetry: false,
