@@ -1,8 +1,12 @@
+import Sass from "sass";
 const config = require('./config');
+const pkg = require("./package.json");
 
 module.exports = {
+  telemetry: false,
   srcDir: __dirname,
-  mode: 'spa',
+  ssr: false,
+  target: "static",
   router: {
     base: '/',
     mode: 'hash'
@@ -39,17 +43,13 @@ module.exports = {
   env: {config},
   loading: {color: '#2323f1'},
   build: {
-    // publicPath: 'nuxt/',
-    extend(config, {isDev, isClient}) {
-
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+    loaders: {
+      scss: {
+        implementation: Sass,
+        // fiber: Fiber
       }
+    },
+    extend(config, {isDev, isClient}) {
     }
   }
 };
