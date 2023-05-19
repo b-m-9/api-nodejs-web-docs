@@ -100,7 +100,7 @@
 
 <script>
   import params_3 from '~/components/MethodElements/params_3.vue'
-  import qs from 'qs';
+  import qs from 'querystring';
 
   export default {
     components: {params_3},
