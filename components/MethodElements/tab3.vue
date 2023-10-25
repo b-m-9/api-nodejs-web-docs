@@ -3,10 +3,13 @@
     <div style="margin: -15px;">
       <form method="post" :action="$config.API_URL+method.method" target="__blank" @submit.prevent="testReq">
         <input type="hidden" :value="$config.API_URL+method.method" name="methodURL"/>
+        <input type="hidden" :value="method.reqMethods && method.reqMethods[0] ? method.reqMethods[0] : 'POST'" name="methodType"/>
         <div class="request-editor-url-container">
           <div class="request-editor__main" style="top: initial; width: initial;">
             <div class="request-editor__main__url-group">
-              <div class="request-method-editor">POST</div>
+              <div class="request-method-editor">
+                {{ method.reqMethods && method.reqMethods[0] ? method.reqMethods[0] : "POST*" }}
+              </div>
               <div class="request-url-editor">
                 {{$config.API_URL+method.method}}
               </div>
@@ -148,7 +151,11 @@
         this.req_param = param;
         console.log('SEND: ', request.methodURL, param);
 
-        return this.$axios.post(request.methodURL, param)
+        return this.$axios({
+          url: request.methodURL,
+          data: param,
+          type: request.methodType || "POST"
+        })
           .then((res) => {
             this.res_data = res.data;
             this.status = res.status;

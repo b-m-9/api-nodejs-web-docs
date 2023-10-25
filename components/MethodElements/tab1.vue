@@ -35,14 +35,14 @@
           </tr>
           <tr>
             <td>Тип</td>
-            <td>all</td>
+            <td>{{ method.reqMethods && method.reqMethods[0] ? method.reqMethods[0] : "POST*"}}</td>
           </tr>
           </tbody>
         </table>
 
       </div>
 
-      <h4 class="table__block--title table__block--title__">POST PARAMETERS
+      <h4 class="table__block--title table__block--title__">{{ method.reqMethods && method.reqMethods[0] ? method.reqMethods[0] : "POST"}} PARAMETERS
 
         <div class="table__block--btn-group">
           <button class="btn ">
